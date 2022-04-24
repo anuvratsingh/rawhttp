@@ -251,17 +251,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "308cc39be01b73d0d18f82a0e7b2a3df85245f84af96fdddc5d202d27e47b86a"
 
 [[package]]
-name = "mget"
-version = "0.1.0"
-dependencies = [
- "clap",
- "rand",
- "smoltcp",
- "trust-dns-client",
- "url",
-]
-
-[[package]]
 name = "mio"
 version = "0.8.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -407,6 +396,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d34f1408f55294453790c48b2f1ebbb1c5b4b7563eb1f418bcfcfdbb06ebb4e7"
 dependencies = [
  "getrandom",
+]
+
+[[package]]
+name = "raw-http"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "rand",
+ "smoltcp",
+ "trust-dns-client",
+ "url",
 ]
 
 [[package]]
