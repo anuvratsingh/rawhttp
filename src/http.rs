@@ -54,6 +54,9 @@ pub fn get(
     url: Url,
 ) -> Result<(), UpstreamError> {
     let domain_name = url.host_str().ok_or(UpstreamError::InvalidUrl)?;
+    // A neighbor mapping translates from a protocol address to a 
+    // hardware address, and contains the timestamp past which the 
+    // mapping should be discarded.
     let neighbor_cache = NeighborCache::new(BTreeMap::new());
 
     let mac = HardwareAddress::Ethernet(mac);
@@ -61,9 +64,13 @@ pub fn get(
     let tcp_rx_buffer = TcpSocketBuffer::new(vec![0; 1024]);
     let tcp_tx_buffer = TcpSocketBuffer::new(vec![0; 1024]);
     let tcp_socket = TcpSocket::new(tcp_rx_buffer, tcp_tx_buffer);
-
+    // Classless Inter-Domain Routing (CIDR) is a 
+    // method for allocating IP addresses and for IP routing.
     let ip_addrs = [IpCidr::new(IpAddress::v4(192, 168, 42, 1), 24)];
-
+    // TUN and TAP are kernel virtual network devices. Being network 
+    // devices supported entirely in software, they differ from 
+    // ordinary network devices which are backed by physical network 
+    // adapters. 
     let fd = tap.as_raw_fd();
     let mut routes = Routes::new(BTreeMap::new());
     let default_gateway = Ipv4Address::new(192, 168, 42, 100);

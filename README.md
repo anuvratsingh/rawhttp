@@ -16,6 +16,13 @@ sudo sysctl net.ipv4.ip_forward=1
 ```
 cargo run http://www.<domain-name>/ <tap-device-name>
 ```
+
+### Code Structure 
+1. `main.rs` - get inputs using `clap` parsing them and calling `http::get()`.
+2. `dns.rs` - resolves dns using `trust_dns_client`.
+3. `ethernet.rs` - provide mac address.
+4. `http.rs` - 
+
 ### DNS details
 |Term|Definition|Code|
 |-|-|-|
