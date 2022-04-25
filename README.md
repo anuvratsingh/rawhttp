@@ -21,7 +21,7 @@ cargo run http://www.<domain-name>/ <tap-device-name>
 1. `main.rs` - get inputs using `clap` parsing them and calling `http::get()`.
 2. `dns.rs` - resolves dns using `trust_dns_client`.
 3. `ethernet.rs` - provide mac address.
-4. `http.rs` - 
+4. `http.rs` - builds a network interface and connects to the domain provided.
 
 ### DNS details
 |Term|Definition|Code|
